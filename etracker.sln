@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "etracker.Server", "etracker.Server\etracker.Server.csproj", "{97FA2514-8CD5-4CF7-9379-D39E73C5F364}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "etracker.client", "etracker.client\etracker.client.esproj", "{01DE17A9-C222-4FC2-8BFA-D7ED59F94F0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97FA2514-8CD5-4CF7-9379-D39E73C5F364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FA2514-8CD5-4CF7-9379-D39E73C5F364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FA2514-8CD5-4CF7-9379-D39E73C5F364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FA2514-8CD5-4CF7-9379-D39E73C5F364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01DE17A9-C222-4FC2-8BFA-D7ED59F94F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01DE17A9-C222-4FC2-8BFA-D7ED59F94F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01DE17A9-C222-4FC2-8BFA-D7ED59F94F0B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{01DE17A9-C222-4FC2-8BFA-D7ED59F94F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01DE17A9-C222-4FC2-8BFA-D7ED59F94F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01DE17A9-C222-4FC2-8BFA-D7ED59F94F0B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AF888CF-0225-4C8F-AABB-1A3CB047CE43}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,221 @@
+/* Header Styles */
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: linear-gradient(135deg, #3f51b5, #1976d2); /* Gradient Background */
+  color: white;
+  border-bottom: 2px solid #1976d2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.header-toolbar:hover {
+  background: linear-gradient(135deg, #303f9f, #1565c0); /* Darker gradient on hover */
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.title:hover {
+  transform: scale(1.05);
+}
+
+/* Profile Button Styles */
+.profile-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.1);
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: rotate(10deg);
+}
+
+/* Mat Menu Styles */
+.profile-menu {
+  background-color: rgba(255, 255, 255, 0.95); /* Slight Transparency */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mat-menu-item {
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  color: #1976d2;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mat-menu-item:hover {
+  background-color: #e3f2fd;
+  transform: translateX(5px); /* Subtle hover effect */
+}
+
+/* Tab Group Styles */
+.mat-tab-group {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+mat-tab {
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+mat-tab:hover {
+  transform: scale(1.05);
+}
+
+mat-tab-group .mat-tab-label-active {
+  font-weight: 700;
+  color: #3f51b5;
+  border-bottom: 3px solid #3f51b5; /* Custom tab indicator */
+  padding-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+mat-tab-group .mat-tab-label {
+  padding-bottom: 10px;
+  font-size: 1.1rem;
+  color: #757575;
+  transition: color 0.3s ease;
+}
+
+mat-tab-group .mat-tab-label:hover {
+  color: #3f51b5;
+}
+
+/* Content Area Styling */
+app-customer-track-device {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Responsive Design for Mobile-Friendly Layouts */
+@media (max-width: 768px) {
+  .header-toolbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  /* Position profile menu on the top-right in small screens */
+  .profile-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  /* Profile Image & Button */
+  .profile-button {
+    margin-top: 10px;
+  }
+
+  .profile-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Tab Styles */
+  .mat-tab-group {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  mat-tab {
+    font-size: 1rem;
+  }
+
+  mat-tab-group .mat-tab-label-active {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  /* Content Area */
+  app-customer-track-device {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  /* Ensure tabs stack vertically on mobile */
+  mat-tab-group .mat-tab-label {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  /* Make the menu and toolbar buttons more touch-friendly */
+  .mat-menu-item {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.3rem;
+  }
+
+  /* Make profile image smaller for very small screens */
+  .profile-image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .profile-button {
+    padding: 5px;
+  }
+
+  mat-tab-group {
+    margin-top: 15px;
+    padding: 8px;
+  }
+
+  mat-tab {
+    font-size: 0.95rem;
+  }
+
+  app-customer-track-device {
+    padding: 12px;
+    margin-top: 8px;
+  }
+
+  /* Ensure buttons and menus are more accessible */
+  .mat-menu-item {
+    font-size: 0.95rem;
+    padding: 8px 15px;
+  }
+}

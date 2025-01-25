@@ -1,0 +1,90 @@
+:root {
+  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+  /* Global Colors - Veterinary Medicine Theme */
+  --background-color: #f4f4f4; /* light gray background for a soft, calming effect */
+  --default-color: #4a4a4a; /* Dark grey for text, ensuring readability */
+  --heading-color: #2e2e2e; /* Darker grey for headings */
+  --accent-color: blue; /* Blue for buttons, links, and key highlights */
+  --surface-color: #ffffff; /* White for boxed elements to ensure contrast */
+  --contrast-color: #ffffff; /* White text color for contrast against dark or accent backgrounds */
+  /* Nav Menu Colors */
+  --nav-color: #4a4a4a; /* Dark grey for navmenu links */
+  --nav-hover-color: #FFBF00; /* Amber for nav hover for a vibrant feel */
+  --nav-mobile-background-color: #ffffff; /* White for mobile navigation */
+  --nav-dropdown-background-color: #ffffff; /* White background for dropdowns */
+  --nav-dropdown-color: #4a4a4a; /* Dark grey for dropdown links */
+  --nav-dropdown-hover-color: #FFBF00; /* Amber for dropdown hover links */
+  /* Smooth scroll */
+  scroll-behavior: smooth;
+}
+
+/* General Styling & Shared Classes */
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  line-height: 1.6;
+  overflow-y: auto; /* Allow vertical scrolling */
+  height: 100%; /* Ensure the body takes full height */
+}
+
+a {
+  color: var(--accent-color); /* Blue for links */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  &:hover
+
+{
+  color: green; /* Visually distinct hover effect */
+  text-decoration: underline;
+}
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* Global Sections */
+section, .section {
+  color: var(--default-color); /* Text color */
+  background-color: var(--background-color); /* Background color */
+  padding: 60px 0; /* Vertical padding */
+  scroll-margin-top: 98px; /* Smooth scroll adjustment */
+  overflow-y: auto; /* Allow vertical scrolling */
+  width: 100%; /* Full width */
+  margin: 0; /* No margin */
+  box-sizing: border-box; /* Include padding in width calculation */
+  height: auto; /* Make section height flexible */
+  display: flex; /* Flex layout */
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+  section, .section {
+    padding: 40px 10px; /* Compact padding */
+    height: auto; /* Flexible height for medium screens */
+    min-height: 100vh; /* Minimum height */
+    scroll-margin-top: 64px; /* Adjusted scroll margin */
+    flex-direction: column; /* Stack vertically */
+    justify-content: flex-start; /* Align to top */
+    align-items: flex-start; /* Align items to left */
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  section, .section {
+    padding: 30px 10px; /* Compact padding for smaller screens */
+    height: auto; /* Flexible height */
+    min-height: 80vh; /* Minimum height for smaller screens */
+    flex-direction: column; /* Stack vertically */
+    justify-content: flex-start; /* Align to top */
+    align-items: flex-start; /* Align items to left */
+  }
+}

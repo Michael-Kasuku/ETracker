@@ -1,0 +1,153 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #eef2f6, #ffffff);
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 32px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #34495e;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 24px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-flex {
+  background: #f9faff;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+mat-form-field.mat-focused .mat-form-field-label {
+  color: #007bff;
+}
+
+mat-input-element {
+  font-size: 16px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  transform: scale(1.02);
+}
+
+.link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #7f8c8d;
+}
+
+
+.link {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+.or-text {
+  margin: 0 10px; /* Add some spacing around the word "or" */
+  color: #7f8c8d; /* Use a subdued color */
+  font-weight: 500; /* Slightly bold for readability */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+
+  .login-btn {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .link-container {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+
+  mat-form-field {
+    margin-bottom: 14px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .link-container {
+    font-size: 0.8rem;
+  }
+}

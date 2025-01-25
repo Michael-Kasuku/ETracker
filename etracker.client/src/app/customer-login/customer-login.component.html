@@ -1,0 +1,49 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="title">Customer Login</mat-card-title>
+      <mat-card-subtitle class="subtitle">
+        Access your customer dashboard securely.
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="handleLogin()">
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email Address</mat-label>
+          <input matInput
+                 type="email"
+                 name="Email"
+                 [(ngModel)]="formData.Email"
+                 placeholder="e.g., customer@domain.com"
+                 required />
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput
+                 type="password"
+                 name="Password"
+                 [(ngModel)]="formData.Password"
+                 placeholder="Enter your password"
+                 required />
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <div class="form-group text-center">
+          <button mat-raised-button class="login-btn" color="primary" type="submit">
+            Login
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <!-- Links for Sign Up and Forgot Password -->
+    <div class="text-center link-container">
+      <a routerLink="/customer/signup" class="link">Sign Up</a>
+      <span class="or-text">or</span>
+      <a routerLink="/customer/forgot/password" class="link">Forgot Password?</a>
+    </div>
+  </mat-card>
+</div>

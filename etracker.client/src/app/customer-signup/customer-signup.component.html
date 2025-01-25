@@ -1,0 +1,69 @@
+<div class="signup-container">
+  <mat-card class="signup-card">
+    <mat-card-header>
+      <mat-card-title class="title">Create Your Customer Account</mat-card-title>
+      <mat-card-subtitle class="subtitle">
+        Manage your account with ease and security.
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="handleSubmit($event)">
+        <!-- Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput
+                 type="text"
+                 name="FullName"
+                 [(ngModel)]="formData.FullName"
+                 placeholder="e.g., William Ruto"
+                 required />
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email Address</mat-label>
+          <input matInput
+                 type="email"
+                 name="Email"
+                 [(ngModel)]="formData.Email"
+                 placeholder="e.g., vet@domain.com"
+                 required />
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput
+                 type="password"
+                 name="PasswordHash"
+                 [(ngModel)]="formData.PasswordHash"
+                 placeholder="Enter a secure password"
+                 required />
+        </mat-form-field>
+
+        <!-- Confirm Password -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput
+                 type="password"
+                 name="ConfirmPassword"
+                 [(ngModel)]="formData.ConfirmPassword"
+                 placeholder="Re-enter your password"
+                 required />
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <div class="form-group text-center">
+          <button mat-raised-button class="signup-btn" color="primary" type="submit">
+            Create Account
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <!-- Login Link -->
+    <div class="text-center login-link">
+      Already have an account? <a routerLink="/customer/login">Login</a>
+    </div>
+  </mat-card>
+</div>

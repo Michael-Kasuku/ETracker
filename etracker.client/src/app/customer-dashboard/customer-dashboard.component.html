@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <span class="title">ETracker</span>
+  <!-- Profile Menu -->
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile" class="profile-button">
+    <img [src]="profileImage" alt="Profile" class="profile-image">
+  </button>
+
+  <mat-menu #profileMenu="matMenu" class="profile-menu">
+    <button mat-menu-item (click)="goToProfile()">My Profile</button>
+    <button mat-menu-item (click)="onLogout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>
+
+<!-- Horizontal Navigation Menu -->
+<mat-tab-group [(selectedIndex)]="activeTab" class="tab-group">
+  <mat-tab label="Track Device">
+    <app-customer-track-device></app-customer-track-device>
+  </mat-tab>
+  <mat-tab label="Add Device">
+    <app-customer-add-device></app-customer-add-device>
+  </mat-tab>
+</mat-tab-group>

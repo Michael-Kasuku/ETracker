@@ -1,0 +1,25 @@
+<div class="my-profile">
+  <h2>Update Profile Picture</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile()" novalidate>
+    <!-- Profile Picture -->
+    <div class="form-group">
+      <label for="profilePicture">Profile Picture</label>
+      <input type="file" id="profilePicture" class="form-control" (change)="onFileSelected($event)" />
+      <div class="preview" *ngIf="profilePicturePreview">
+        <p>Preview:</p>
+        <img [src]="profilePicturePreview" alt="Profile Preview" />
+      </div>
+      <small *ngIf="
+          profileForm.get('profilePicture')?.touched &&
+          profileForm.get('profilePicture')?.invalid
+        "
+             class="text-danger">
+        Profile picture is required.
+      </small>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">
+      Update Profile Picture
+    </button>
+  </form>
