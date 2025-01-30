@@ -1,1 +1,23 @@
-<p>customer-add-device works!</p>
+<section id="add-device" class="device-section">
+  <div class="container-lg device-content">
+    <div class="device-form">
+      <h2>Add New Device</h2>
+      <p>Enter the details of the device to register it in the system.</p>
+      <form (ngSubmit)="handleSubmit($event)">
+        <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Device Name</mat-label>
+          <input matInput type="text" name="Name" [(ngModel)]="formData.Name" placeholder="Enter device name" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Device IMEI</mat-label>
+          <input matInput type="text" name="IMEI" [(ngModel)]="formData.IMEI" placeholder="Enter device IMEI" required />
+        </mat-form-field>
+
+        <div class="form-group text-center">
+          <button mat-raised-button color="primary" type="submit">Register Device</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

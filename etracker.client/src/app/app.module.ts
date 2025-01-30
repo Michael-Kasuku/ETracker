@@ -45,6 +45,8 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
 import { CustomerMyProfileComponent } from './customer-my-profile/customer-my-profile.component';
 import { CustomerTrackDeviceComponent } from './customer-track-device/customer-track-device.component';
 import { CustomerAddDeviceComponent } from './customer-add-device/customer-add-device.component';
+import { CustomerMyDevicesComponent } from './customer-my-devices/customer-my-devices.component';
+import { CustomerUpdateDeviceComponent } from './customer-update-device/customer-update-device.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { CustomerAddDeviceComponent } from './customer-add-device/customer-add-d
     CustomerDashboardComponent,
     CustomerMyProfileComponent,
     CustomerTrackDeviceComponent,
-    CustomerAddDeviceComponent
+    CustomerAddDeviceComponent,
+    CustomerMyDevicesComponent,
+    CustomerUpdateDeviceComponent
   ],
   imports: [
     BrowserModule,

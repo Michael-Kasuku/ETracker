@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("c4de8f2e-a4d8-4112-ba90-0afcee25d15b")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("etracker.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef23a484c9b06870ae4f349d550d3cea68af7788")]
 [assembly: System.Reflection.AssemblyProductAttribute("etracker.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("etracker.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

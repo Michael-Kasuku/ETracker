@@ -41,7 +41,7 @@ export class CustomerDashboardComponent implements OnInit, OnDestroy {
   }
 
   goToProfile(): void {
-    this.router.navigate(['/customer/profile']);
+    this.router.navigate(['/customer/my/profile']);
   }
 
   private loadProfileImage(email: string): void {

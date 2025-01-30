@@ -9,6 +9,8 @@ import { CustomerSignupComponent } from './customer-signup/customer-signup.compo
 import { CustomerForgotPasswordComponent } from './customer-forgot-password/customer-forgot-password.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { CustomerMyProfileComponent } from './customer-my-profile/customer-my-profile.component';
+import { CustomerAddDeviceComponent } from './customer-add-device/customer-add-device.component';
+import { CustomerUpdateDeviceComponent } from './customer-update-device/customer-update-device.component';
 
 import { CustomerAuthGuard } from './customer-auth/customer-auth.guard';
 
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'customer/signup', component: CustomerSignupComponent },
   { path: 'customer/forgot/password', component: CustomerForgotPasswordComponent },
   { path: 'customer/dashboard', component: CustomerDashboardComponent, canActivate: [CustomerAuthGuard] },
-  { path: 'customer/myprofile', component: CustomerMyProfileComponent, canActivate: [CustomerAuthGuard] },
+  { path: 'customer/my/profile', component: CustomerMyProfileComponent, canActivate: [CustomerAuthGuard] },
+  { path: 'customer/add/device', component: CustomerAddDeviceComponent, canActivate: [CustomerAuthGuard] },
+  { path: 'customer/update/device', component: CustomerAddDeviceComponent, canActivate: [CustomerAuthGuard] },
 ];
 
 @NgModule({

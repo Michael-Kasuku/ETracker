@@ -1,0 +1,53 @@
+<div class="table-container">
+  <!-- Top Bar with Button -->
+  <div class="table-header">
+    <mat-form-field appearance="outline" class="filter-input">
+      <mat-label>Search</mat-label>
+      <input matInput (input)="applyFilter($event)" placeholder="Search devices">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="new-device-button" (click)="addDevice()">Add Device</button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 custom-table">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let device" data-label="ID"> {{device.id}} </td>
+    </ng-container>
+
+    <!-- Device Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Device Name </th>
+      <td mat-cell *matCellDef="let device" data-label="Device Name"> {{device.name}} </td>
+    </ng-container>
+
+    <!-- IMEI Column -->
+    <ng-container matColumnDef="imei">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> IMEI </th>
+      <td mat-cell *matCellDef="let device" data-label="IMEI"> {{device.imei}} </td>
+    </ng-container>
+
+    <!-- Date Added Column -->
+    <ng-container matColumnDef="dateAdded">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Added </th>
+      <td mat-cell *matCellDef="let device" data-label="Date Added"> {{device.dateAdded}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let device">
+        <button mat-raised-button class="track-button" (click)="trackDevice(device)">Track</button>
+        <button mat-raised-button class="update-button" (click)="updateDevice(device)">Update</button>
+        <button mat-raised-button class="delete-button" (click)="deleteDevice(device)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="clickable-row"></tr>
+  </table>
+
+  <!-- Paginator -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>
+
