@@ -89,6 +89,13 @@ mat-input-element {
   color: #0056b3;
 }
 
+mat-progress-bar {
+  margin-bottom: 16px; /* Space between the progress bar and form */
+  height: 5px; /* Adjust the height of the progress bar */
+  background-color: #007bff;
+}
+
+
 /* Media Queries */
 @media (max-width: 768px) {
   .signup-card {

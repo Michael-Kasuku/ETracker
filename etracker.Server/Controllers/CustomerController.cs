@@ -133,22 +133,35 @@ namespace etracker.Server.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateDevice([FromBody] Device device)
+        public async Task<IActionResult> UpdateDevice([FromBody] DeviceUpdateRequest deviceUpdateRequest)
         {
-            var existingDevice = await _context.Devices.FindAsync(device.Id);
-            if (existingDevice == null)
+            var selectedDevice = await _context.Devices.FirstOrDefaultAsync(d => d.Id == deviceUpdateRequest.Id);
+
+            if (selectedDevice == null)
             {
-                return NotFound();
+                return NotFound(new { message = "Device not found." });
             }
 
-            // Update the existing device properties
-            existingDevice.Name = device.Name;
-            existingDevice.IMEI = device.IMEI;
-            _context.Devices.Update(existingDevice);
+            // Check if IMEI already exists (excluding the current device)
+            bool imeiExists = await _context.Devices.AnyAsync(d => d.IMEI == deviceUpdateRequest.IMEI && d.Id != deviceUpdateRequest.Id);
+
+            if (imeiExists)
+            {
+                // IMEI exists in another device, only update the Name
+                selectedDevice.Name = deviceUpdateRequest.Name;
+            }
+            else
+            {
+                // IMEI does not exist in another device, update both Name and IMEI
+                selectedDevice.Name = deviceUpdateRequest.Name;
+                selectedDevice.IMEI = deviceUpdateRequest.IMEI;
+            }
+
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { message = "Device updated successfully." });
         }
+
 
         [HttpDelete("{id}")] // Accepts ID in the URL
         public async Task<IActionResult> DeleteDevice(int id)

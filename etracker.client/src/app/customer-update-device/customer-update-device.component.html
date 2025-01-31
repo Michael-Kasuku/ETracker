@@ -1,21 +1,30 @@
 <section id="update-device" class="device-section">
   <div class="container-lg device-content">
     <div class="device-form">
-      <h2>Add New Device</h2>
-      <p>Enter the details of the device to register it in the system.</p>
+      <h2>Update Device</h2>
+      <p>Enter the updated details to modify the device in the system.</p>
+
+      <!-- Progress Bar -->
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
       <form (ngSubmit)="handleSubmit($event)">
-        <mat-form-field appearance="outline" class="form-group">
-          <mat-label>Device Name</mat-label>
-          <input matInput type="text" name="Name" [(ngModel)]="formData.Name" placeholder="Enter device name" required />
-        </mat-form-field>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Device Name</mat-label>
+            <input matInput type="text" name="Name" [(ngModel)]="formData.Name" placeholder="Enter device name" required />
+          </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="outline" class="form-group">
-          <mat-label>Device IMEI</mat-label>
-          <input matInput type="text" name="IMEI" [(ngModel)]="formData.IMEI" placeholder="Enter device IMEI" required />
-        </mat-form-field>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Device IMEI</mat-label>
+            <input matInput type="text" name="IMEI" [(ngModel)]="formData.IMEI" placeholder="Enter device IMEI" required />
+          </mat-form-field>
+        </div>
 
-        <div class="form-group text-center">
-          <button mat-raised-button color="primary" type="submit">Update Device</button>
+        <div class="form-row button-row">
+          <button mat-raised-button type="button" class="btn btn-cancel" (click)="onCancel()">Cancel</button>
+          <button mat-raised-button color="primary" type="submit" class="btn-update">Update</button>
         </div>
       </form>
     </div>

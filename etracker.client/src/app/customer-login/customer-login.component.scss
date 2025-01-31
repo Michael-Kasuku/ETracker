@@ -95,6 +95,13 @@ mat-input-element {
   font-weight: 500; /* Slightly bold for readability */
 }
 
+mat-progress-bar {
+  margin-bottom: 16px; /* Space between the progress bar and form */
+  height: 5px; /* Adjust the height of the progress bar */
+  background-color: #007bff;
+}
+
+
 /* Media Queries */
 @media (max-width: 768px) {
   .login-card {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -16,11 +16,10 @@ export interface Device {
 @Component({
   selector: 'app-customer-my-devices',
   standalone: false,
-  
   templateUrl: './customer-my-devices.component.html',
-  styleUrl: './customer-my-devices.component.scss'
+  styleUrls: ['./customer-my-devices.component.scss'],
 })
-export class CustomerMyDevicesComponent {
+export class CustomerMyDevicesComponent implements OnInit, AfterViewInit {
   private email: string | null = localStorage.getItem('email');
   displayedColumns: string[] = ['id', 'name', 'imei', 'dateAdded', 'actions'];
   dataSource = new MatTableDataSource<Device>([]);
@@ -71,11 +70,15 @@ export class CustomerMyDevicesComponent {
   }
 
   trackDevice(device: Device): void {
-    this.openSnackbar(`Tracking device: ${device.imei}`, 'success');
+    localStorage.setItem('id', device.id.toString());
+    localStorage.setItem('name', device.name);
+    this.router.navigate([`/customer/track/device`]);
   }
 
   updateDevice(device: Device): void {
     localStorage.setItem('id', device.id.toString());
+    localStorage.setItem('name', device.name);
+    localStorage.setItem('imei', device.imei);
     this.router.navigate([`/customer/update/device`]);
   }
 
@@ -87,7 +90,8 @@ export class CustomerMyDevicesComponent {
         .subscribe(
           () => {
             this.openSnackbar('Device deleted successfully!', 'success');
-            this.router.navigate(['/customer/dashboard']);
+            // Reload the current page to reflect changes
+            window.location.reload();
           },
           () => {
             this.openSnackbar('Error deleting device. Please try again.', 'error');

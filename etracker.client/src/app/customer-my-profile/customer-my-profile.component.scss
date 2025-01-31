@@ -52,7 +52,7 @@
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: green;
   color: white;
   font-size: 1.1em;
   border: none;
@@ -70,33 +70,62 @@
   cursor: not-allowed;
 }
 
-.user-details {
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
   margin-top: 20px;
-  text-align: left;
 }
 
-.user-details h3 {
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 1.5em;
-  color: #333;
-}
-
-.list-group {
-  list-style: none;
-  padding: 0;
-}
-
-.list-group-item {
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  margin-bottom: 5px;
+.btn-cancel {
+  background-color: black;
+  color: white;
   font-size: 1.1em;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.list-group-item strong {
-  font-weight: bold;
+.btn-cancel:hover {
+  background-color: #333;
+}
+
+/* Progress Bar Styles */
+.progress-container {
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.progress {
+  height: 20px;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+  animation: progress-animation 2s infinite ease-in-out;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Keyframe animation for progress bar */
+@keyframes progress-animation {
+  0% {
+    width: 10%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
 
 /* Media Queries */
@@ -141,3 +170,4 @@
     font-size: 0.9em;
   }
 }
+

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("etracker.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef23a484c9b06870ae4f349d550d3cea68af7788")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f939f6cebcdfffe751d8162769ee6cd8e3381af2")]
 [assembly: System.Reflection.AssemblyProductAttribute("etracker.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("etracker.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

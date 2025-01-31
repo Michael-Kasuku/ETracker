@@ -11,6 +11,9 @@
     gap: 20px;
 
     .device-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
       max-width: 600px;
       background: #fff;
@@ -29,6 +32,7 @@
         text-align: center;
         color: #1565c0;
         margin-bottom: 10px;
+        font-weight: 600;
       }
 
       p {
@@ -36,75 +40,115 @@
         font-size: 14px;
         color: #666;
         margin-bottom: 20px;
+        line-height: 1.5;
       }
 
-      mat-form-field {
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .form-row {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         margin-bottom: 20px;
       }
 
-      button {
+      mat-form-field {
         width: 100%;
+      }
+
+      .button-row {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 20px;
+      }
+
+      button {
         padding: 12px;
         font-size: 16px;
         font-weight: bold;
         border-radius: 6px;
-        background: linear-gradient(90deg, #1565c0, #1e88e5);
-        color: #fff;
         transition: background 0.3s, transform 0.2s;
+        min-width: 120px;
+        display: inline-block;
 
         &:hover {
-          background: linear-gradient(90deg, #0d47a1, #1976d2);
           transform: translateY(-2px);
         }
       }
-    }
-  }
-}
 
-@media (max-width: 768px) {
-  .device-section {
-    padding: 30px 10px;
+      .btn-cancel {
+        background-color: #000;
+        color: white;
+      }
 
-    .device-content {
-      .device-form {
-        padding: 25px;
-        box-shadow: none;
+      .btn-cancel:hover {
+        background-color: #333;
+      }
 
-        h2 {
-          font-size: 24px;
-        }
+      .btn-update {
+        background: #1565c0;
+        color: white;
+      }
 
-        p {
-          font-size: 13px;
-        }
+      .btn-update:hover {
+        background: #1e88e5;
+      }
+
+      mat-progress-bar {
+        margin-bottom: 16px;
+        height: 5px;
+        background-color: #007bff;
       }
     }
   }
-}
 
-@media (max-width: 480px) {
-  .device-section {
-    padding: 20px 5px;
-
+  @media (max-width: 768px) {
     .device-content {
-      .device-form {
-        padding: 20px;
-        border-radius: 8px;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        h2 {
-          font-size: 20px;
-        }
+    .device-form {
+      width: 90%;
+      padding: 30px;
+    }
 
-        p {
-          font-size: 12px;
-        }
+    h2 {
+      font-size: 24px;
+    }
 
-        button {
-          font-size: 14px;
-          padding: 10px;
-        }
-      }
+    p {
+      font-size: 13px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .device-form {
+      width: 95%;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    button {
+      font-size: 13px;
+      padding: 8px;
     }
   }
 }

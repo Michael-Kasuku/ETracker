@@ -11,6 +11,7 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
 import { CustomerMyProfileComponent } from './customer-my-profile/customer-my-profile.component';
 import { CustomerAddDeviceComponent } from './customer-add-device/customer-add-device.component';
 import { CustomerUpdateDeviceComponent } from './customer-update-device/customer-update-device.component';
+import { CustomerTrackDeviceComponent } from './customer-track-device/customer-track-device.component';
 
 import { CustomerAuthGuard } from './customer-auth/customer-auth.guard';
 
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'customer/dashboard', component: CustomerDashboardComponent, canActivate: [CustomerAuthGuard] },
   { path: 'customer/my/profile', component: CustomerMyProfileComponent, canActivate: [CustomerAuthGuard] },
   { path: 'customer/add/device', component: CustomerAddDeviceComponent, canActivate: [CustomerAuthGuard] },
-  { path: 'customer/update/device', component: CustomerAddDeviceComponent, canActivate: [CustomerAuthGuard] },
+  { path: 'customer/update/device', component: CustomerUpdateDeviceComponent, canActivate: [CustomerAuthGuard] },
+  { path: 'customer/track/device', component: CustomerTrackDeviceComponent, canActivate: [CustomerAuthGuard] },
 ];
 
 @NgModule({

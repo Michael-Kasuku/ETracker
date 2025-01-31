@@ -14,6 +14,7 @@ import { LoginResult } from '../customer-auth/login-result';
 export class CustomerLoginComponent {
   title = 'Customer Login';
   loginResult?: LoginResult;
+  loading = false;  // Add this line
 
   formData = {
     Email: '',
@@ -35,6 +36,9 @@ export class CustomerLoginComponent {
       return;
     }
 
+    // Show progress bar
+    this.loading = true;
+
     // Prepare the login request object
     const loginRequest: LoginRequest = {
       email: this.formData.Email,
@@ -45,6 +49,7 @@ export class CustomerLoginComponent {
     this.authService.login(loginRequest).subscribe({
       next: (result) => {
         this.loginResult = result;
+        this.loading = false; // Hide the progress bar after response
 
         if (result.success) {
           // Successful login
@@ -53,7 +58,7 @@ export class CustomerLoginComponent {
           // Extract the `redirectTo` query parameter
           const redirectTo = this.activatedRoute.snapshot.queryParamMap.get('redirectTo') || '/customer/dashboard';
 
-          // Navigate to the originally requested URL or default to the admin dashboard
+          // Navigate to the originally requested URL or default to the customer dashboard
           this.router.navigate([redirectTo]);
         } else {
           // Login failed (e.g., incorrect credentials)
@@ -62,6 +67,7 @@ export class CustomerLoginComponent {
       },
       error: () => {
         // Handle server or network errors
+        this.loading = false; // Hide the progress bar after error
         this.openSnackbar('Login failed. Please check your credentials.', 'error');
       },
     });

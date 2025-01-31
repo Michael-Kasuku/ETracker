@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -16,6 +16,8 @@ export class CustomerSignupComponent {
     PasswordHash: '',
     ConfirmPassword: '',
   };
+
+  loading = false;  // Add this line
 
   constructor(
     private http: HttpClient,
@@ -53,25 +55,28 @@ export class CustomerSignupComponent {
       this.openSnackbar('Passwords do not match.', 'error');
       return;
     }
-    const url = `https://localhost:40443/api/customer/createcustomer`
+
+    // Show progress bar
+    this.loading = true;
+
+    const url = `https://localhost:40443/api/customer/createcustomer`;
+
     // HTTP Request
-    this.http.post(url,
-      {
-        FullName: this.formData.FullName,
-        Email: this.formData.Email,
-        PasswordHash: this.formData.PasswordHash
-      }
-    ).subscribe(
+    this.http.post(url, {
+      FullName: this.formData.FullName,
+      Email: this.formData.Email,
+      PasswordHash: this.formData.PasswordHash
+    }).subscribe(
       () => {
+        this.loading = false;  // Hide progress bar on success
         this.openSnackbar('Customer Account created successfully!', 'success');
         this.router.navigate(['/customer/login']);
       },
       (error) => {
-        // Handle Error Response
+        this.loading = false;  // Hide progress bar on error
         if (error.error && error.error.message) {
           this.openSnackbar(error.error.message, 'error');
         } else if (error.error && error.error.errors) {
-          // Extract and concatenate all error messages
           const errorMessages = error.error.errors.map((err: any) => err.description).join('\n');
           this.openSnackbar(errorMessages, 'error');
         } else {

@@ -7,6 +7,9 @@
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
+      <!-- Progress Bar -->
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
       <form (ngSubmit)="handleLogin()">
         <!-- Email -->
         <mat-form-field appearance="outline" class="full-width">

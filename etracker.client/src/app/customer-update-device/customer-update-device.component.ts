@@ -6,16 +6,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-customer-update-device',
   standalone: false,
-  
   templateUrl: './customer-update-device.component.html',
-  styleUrl: './customer-update-device.component.css'
+  styleUrls: ['./customer-update-device.component.scss']
 })
 export class CustomerUpdateDeviceComponent {
   private id: number | null = localStorage.getItem('id') ? parseInt(localStorage.getItem('id')!, 10) : null;
+  private name: string | null = localStorage.getItem('name');
+  private imei: string | null = localStorage.getItem('imei');
   formData = {
-    Name: '',
-    IMEI: ''
+    Name: this.name,
+    IMEI: this.imei
   };
+  loading = false;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) { }
 
@@ -32,24 +34,35 @@ export class CustomerUpdateDeviceComponent {
       return;
     }
 
+    if (!this.id) {
+      this.openSnackbar('Invalid device ID.', 'error');
+      return;
+    }
+
     const url = `https://localhost:40443/api/customer/updatedevice`;
-    this.http
-      .put(url, {
-        Id: this.id, // Ensure ID is included in the request body
-        Name: this.formData.Name,
-        IMEI: this.formData.IMEI
-      })
-      .subscribe(
-        () => {
-          this.openSnackbar('Device updated successfully!', 'success');
-          this.router.navigate(['/customer/dashboard']);
-          localStorage.removeItem('id'); // Remove ID after updating
-        },
-        () => {
-          this.openSnackbar('Error updating device. Please try again.', 'error');
-        }
-      );
+    this.loading = true;
+
+    this.http.put(url, {
+      Id: this.id,
+      Name: this.formData.Name,
+      IMEI: this.formData.IMEI
+    }).subscribe(
+      () => {
+        this.openSnackbar('Device updated successfully!', 'success');
+        this.router.navigate(['/customer/dashboard']);
+        localStorage.removeItem('id');
+        localStorage.removeItem('name');
+        localStorage.removeItem('imei');
+        this.loading = false;
+      },
+      (error) => {
+        const errorMessage = error.error?.message || 'Error updating device. Please try again.';
+        this.openSnackbar(errorMessage, 'error');
+        this.loading = false;
+      }
+    );
   }
+
 
   openSnackbar(message: string, severity: 'success' | 'error') {
     const snackBarClass = severity === 'success' ? 'snackbar-success' : 'snackbar-error';
@@ -61,5 +74,14 @@ export class CustomerUpdateDeviceComponent {
 
   closeSnackbar() {
     this.snackBar.dismiss();
+  }
+
+  onCancel(): void {
+    const confirmCancel = window.confirm('Are you sure you want to cancel?');
+
+    if (confirmCancel) {
+      // Navigate to the dashboard
+      this.router.navigate(['/customer/dashboard']);
+    }
   }
 }

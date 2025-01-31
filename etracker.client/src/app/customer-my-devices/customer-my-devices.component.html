@@ -5,7 +5,7 @@
       <mat-label>Search</mat-label>
       <input matInput (input)="applyFilter($event)" placeholder="Search devices">
     </mat-form-field>
-    <button mat-raised-button color="primary" class="new-device-button" (click)="addDevice()">Add Device</button>
+    <button mat-raised-button color="primary" class="new-device-button" (click)="addDevice()">New</button>
   </div>
 
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 custom-table">
@@ -50,4 +50,3 @@
   <!-- Paginator -->
   <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]" showFirstLastButtons></mat-paginator>
 </div>
-
