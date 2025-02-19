@@ -59,7 +59,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins("https://localhost:4200") // Replace with your app's origin
+        policy.WithOrigins("https://laptoptracker-001-site1.qtempurl.com") // Replace with your app's origin
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

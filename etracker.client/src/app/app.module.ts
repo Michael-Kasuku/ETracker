@@ -37,15 +37,12 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HomeComponent } from './home/home.component';
 import { CustomerLoginComponent } from './customer-login/customer-login.component';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 import { CustomerSignupComponent } from './customer-signup/customer-signup.component';
 import { CustomerForgotPasswordComponent } from './customer-forgot-password/customer-forgot-password.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { CustomerMyProfileComponent } from './customer-my-profile/customer-my-profile.component';
 import { CustomerTrackDeviceComponent } from './customer-track-device/customer-track-device.component';
 import { CustomerAddDeviceComponent } from './customer-add-device/customer-add-device.component';
-import { CustomerMyDevicesComponent } from './customer-my-devices/customer-my-devices.component';
 import { CustomerUpdateDeviceComponent } from './customer-update-device/customer-update-device.component';
 
 @NgModule({
@@ -53,15 +50,12 @@ import { CustomerUpdateDeviceComponent } from './customer-update-device/customer
     AppComponent,
     HomeComponent,
     CustomerLoginComponent,
-    PrivacyPolicyComponent,
-    TermsOfServiceComponent,
     CustomerSignupComponent,
     CustomerForgotPasswordComponent,
     CustomerDashboardComponent,
     CustomerMyProfileComponent,
     CustomerTrackDeviceComponent,
     CustomerAddDeviceComponent,
-    CustomerMyDevicesComponent,
     CustomerUpdateDeviceComponent
   ],
   imports: [

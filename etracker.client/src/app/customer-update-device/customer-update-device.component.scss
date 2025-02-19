@@ -2,153 +2,154 @@
   padding: 60px 20px;
   background: linear-gradient(135deg, #f5f7fa, #e3eaf2);
   color: #333;
+}
 
+.device-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.device-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.device-form:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.device-form h2 {
+  font-size: 28px;
+  text-align: center;
+  color: #1565c0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.device-form p {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.device-form form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+  min-width: 120px;
+  display: inline-block;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.btn-cancel {
+  background-color: #000;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #333;
+}
+
+.btn-register {
+  background: #1565c0;
+  color: white;
+}
+
+.btn-register:hover {
+  background: #1e88e5;
+}
+
+mat-progress-bar {
+  margin-bottom: 16px;
+  height: 5px;
+  background-color: #007bff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
   .device-content {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-
-    .device-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 600px;
-      background: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s, transform 0.3s;
-
-      &:hover {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        transform: translateY(-3px);
-      }
-
-      h2 {
-        font-size: 28px;
-        text-align: center;
-        color: #1565c0;
-        margin-bottom: 10px;
-        font-weight: 600;
-      }
-
-      p {
-        text-align: center;
-        font-size: 14px;
-        color: #666;
-        margin-bottom: 20px;
-        line-height: 1.5;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .form-row {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-bottom: 20px;
-      }
-
-      mat-form-field {
-        width: 100%;
-      }
-
-      .button-row {
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
-        gap: 20px;
-      }
-
-      button {
-        padding: 12px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 6px;
-        transition: background 0.3s, transform 0.2s;
-        min-width: 120px;
-        display: inline-block;
-
-        &:hover {
-          transform: translateY(-2px);
-        }
-      }
-
-      .btn-cancel {
-        background-color: #000;
-        color: white;
-      }
-
-      .btn-cancel:hover {
-        background-color: #333;
-      }
-
-      .btn-update {
-        background: #1565c0;
-        color: white;
-      }
-
-      .btn-update:hover {
-        background: #1e88e5;
-      }
-
-      mat-progress-bar {
-        margin-bottom: 16px;
-        height: 5px;
-        background-color: #007bff;
-      }
-    }
   }
 
-  @media (max-width: 768px) {
-    .device-content {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .device-form {
-      width: 90%;
-      padding: 30px;
-    }
-
-    h2 {
-      font-size: 24px;
-    }
-
-    p {
-      font-size: 13px;
-    }
-
-    button {
-      font-size: 14px;
-      padding: 10px;
-    }
+  .device-form {
+    width: 90%;
+    padding: 30px;
   }
 
-  @media (max-width: 480px) {
-    .device-form {
-      width: 95%;
-      padding: 20px;
-    }
+  .device-form h2 {
+    font-size: 24px;
+  }
 
-    h2 {
-      font-size: 22px;
-    }
+  .device-form p {
+    font-size: 13px;
+  }
 
-    p {
-      font-size: 12px;
-    }
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
 
-    button {
-      font-size: 13px;
-      padding: 8px;
-    }
+@media (max-width: 480px) {
+  .device-form {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .device-form h2 {
+    font-size: 22px;
+  }
+
+  .device-form p {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 8px;
   }
 }

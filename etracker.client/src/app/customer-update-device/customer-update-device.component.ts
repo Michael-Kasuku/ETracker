@@ -39,7 +39,7 @@ export class CustomerUpdateDeviceComponent {
       return;
     }
 
-    const url = `https://localhost:40443/api/customer/updatedevice`;
+    const url = `https://laptoptracker-001-site1.qtempurl.com/api/customer/updatedevice`;
     this.loading = true;
 
     this.http.put(url, {

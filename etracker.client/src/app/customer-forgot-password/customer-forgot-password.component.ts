@@ -30,7 +30,7 @@ export class CustomerForgotPasswordComponent {
     }
 
     // HTTP Request for Password Reset
-    this.http.post('https://localhost:40443/api/vet/forgotpassword', {
+    this.http.post('https://laptoptracker-001-site1.qtempurl.com/api/vet/forgotpassword', {
       Email: this.formData.Email
     })
       .subscribe(

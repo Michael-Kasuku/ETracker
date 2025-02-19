@@ -37,7 +37,7 @@ export class CustomerAddDeviceComponent {
     // Show progress bar
     this.loading = true;
 
-    const url = `https://localhost:40443/api/customer/adddevice`;
+    const url = `https://laptoptracker-001-site1.qtempurl.com/api/customer/adddevice`;
     this.http
       .post(url, {
         Name: this.formData.Name,

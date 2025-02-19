@@ -1,5 +1,6 @@
 <mat-toolbar color="primary" class="header-toolbar">
   <span class="title">ETracker</span>
+
   <!-- Profile Menu -->
   <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile" class="profile-button">
     <img [src]="profileImage" alt="Profile" class="profile-image">
@@ -11,9 +12,66 @@
   </mat-menu>
 </mat-toolbar>
 
-<!-- Horizontal Navigation Menu -->
-<mat-tab-group [(selectedIndex)]="activeTab" class="tab-group">
-  <mat-tab label="My Devices">
-    <app-customer-my-devices></app-customer-my-devices>
-  </mat-tab>
-</mat-tab-group>
+<div class="dashboard-container">
+  <!-- Table Top Bar -->
+  <div class="table-header">
+    <mat-form-field appearance="outline" class="filter-input">
+      <mat-label>Search</mat-label>
+      <input matInput (input)="applyFilter($event)" placeholder="Search devices">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="new-device-button" (click)="addDevice()">+ Add Device</button>
+  </div>
+
+  <!-- Devices Table -->
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 custom-table">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let device"> {{device.id}} </td>
+      </ng-container>
+
+      <!-- Device Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Device Name </th>
+        <td mat-cell *matCellDef="let device"> {{device.name}} </td>
+      </ng-container>
+
+      <!-- IMEI Column -->
+      <ng-container matColumnDef="imei">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> IMEI </th>
+        <td mat-cell *matCellDef="let device"> {{device.imei}} </td>
+      </ng-container>
+
+      <!-- Date Added Column -->
+      <ng-container matColumnDef="dateAdded">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Added </th>
+        <td mat-cell *matCellDef="let device"> {{device.dateAdded}} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let device" class="actions-cell">
+          <button mat-raised-button color="success" class="track-button" (click)="trackDevice(device)">
+            Track
+          </button>
+          <button mat-raised-button color="primary" class="update-button" (click)="updateDevice(device)">
+            Update
+          </button>
+          <button mat-raised-button color="warn" class="delete-button" (click)="deleteDevice(device)">
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <!-- Paginator -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,148 +1,195 @@
-/* Header Styles */
-.header-toolbar {
+/* SCSS for Responsive Dashboard */
+
+// Variables
+$primary-color: #1e88e5;
+$secondary-color: #3949ab;
+$background-color: #f4f6f9;
+$table-header-gradient: linear-gradient(to right, #43a047, #66bb6a);
+
+// Mixins
+@mixin flex-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
-  background: linear-gradient(135deg, #3f51b5, #1976d2); /* Gradient Background */
+}
+
+@mixin button-hover($color) {
+  background-color: darken($color, 10%) !important;
+}
+
+// Header Toolbar
+.header-toolbar {
+  @include flex-between;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, $secondary-color, $primary-color);
   color: white;
-  border-bottom: 2px solid #1976d2;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
-}
-
-.header-toolbar:hover {
-  background: linear-gradient(135deg, #303f9f, #1565c0); /* Darker gradient on hover */
-}
-
-.title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
-  transition: transform 0.2s ease;
-}
-
-.title:hover {
-  transform: scale(1.05);
-}
-
-/* Profile Button Styles */
-.profile-button {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  transition: transform 0.3s ease;
-}
-
-.profile-button:hover {
-  transform: scale(1.1);
-}
-
-.profile-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.profile-image:hover {
-  transform: rotate(10deg);
-}
-
-/* Mat Menu Styles */
-.profile-menu {
-  background-color: rgba(255, 255, 255, 0.95); /* Slight Transparency */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.mat-menu-item {
-  font-size: 1.1rem;
-  padding: 12px 25px;
-  color: #1976d2;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.mat-menu-item:hover {
-  background-color: #e3f2fd;
-  transform: translateX(5px); /* Subtle hover effect */
-}
-
-/* Tab Group Styles */
-.mat-tab-group {
-  margin-top: 30px;
-  padding: 15px;
-  background-color: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-mat-tab {
-  font-size: 1.2rem;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-mat-tab:hover {
-  transform: scale(1.05);
-}
-
-mat-tab-group .mat-tab-label-active {
-  font-weight: 700;
-  color: #3f51b5;
-  border-bottom: 3px solid #3f51b5; /* Custom tab indicator */
-  padding-bottom: 12px;
-  transition: all 0.3s ease;
-}
-
-mat-tab-group .mat-tab-label {
-  padding-bottom: 10px;
-  font-size: 1.1rem;
-  color: #757575;
-  transition: color 0.3s ease;
-}
-
-mat-tab-group .mat-tab-label:hover {
-  color: #3f51b5;
-}
-
-/* Content Area Styling */
-app-customer-track-device {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
-/* Responsive Design for Mobile-Friendly Layouts */
-@media (max-width: 768px) {
-  .header-toolbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 20px;
-    text-align: center;
-  }
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  flex-wrap: wrap;
 
   .title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
 
-  /* Position profile menu on the top-right in small screens */
   .profile-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
-  /* Profile Image & Button */
-  .profile-button {
-    margin-top: 10px;
+  .profile-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+}
+
+// Dashboard Container
+.dashboard-container {
+  padding: 24px;
+  background: $background-color;
+  min-height: 100vh;
+}
+
+// Table Header
+.table-header {
+  @include flex-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .filter-input {
+    width: 300px;
+  }
+
+  .new-device-button {
+    background: linear-gradient(to right, lighten($primary-color, 10%), $primary-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px 16px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Table Styling
+.table-container {
+  border-radius: 12px;
+  background-color: white;
+  padding: 16px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  overflow-x: auto; // Enables horizontal scrolling for small screens
+}
+
+.custom-table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+
+  th.mat-header-cell {
+    font-weight: bold;
+    background: $table-header-gradient;
+    color: white;
+    padding: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    text-align: left;
+  }
+
+  td.mat-cell {
+    padding: 14px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+
+  tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+}
+
+// Actions Column
+.actions-cell {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.icon-button {
+  padding: 6px 12px;
+  font-weight: 500;
+  transition: transform 0.2s ease-in-out, background 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Action Buttons
+.track-button {
+  background-color: #4CAF50 !important;
+  color: white !important;
+
+  &:hover {
+    @include button-hover(#4CAF50);
+  }
+}
+
+.update-button {
+  background-color: $primary-color !important;
+  color: white !important;
+
+  &:hover {
+    @include button-hover($primary-color);
+  }
+}
+
+.delete-button {
+  background-color: #D32F2F !important;
+  color: white !important;
+
+  &:hover {
+    @include button-hover(#D32F2F);
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .header-toolbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+
+  .table-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .filter-input {
+    width: 100%;
   }
 
   .profile-image {
@@ -150,72 +197,42 @@ app-customer-track-device {
     height: 40px;
   }
 
-  /* Tab Styles */
-  .mat-tab-group {
-    margin-top: 20px;
-    padding: 10px;
+  .custom-table {
+    font-size: 12px;
+    white-space: nowrap; // Prevents table columns from breaking into multiple lines
   }
 
-  mat-tab {
-    font-size: 1rem;
-  }
-
-  mat-tab-group .mat-tab-label-active {
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-
-  /* Content Area */
-  app-customer-track-device {
-    padding: 15px;
-    margin-top: 10px;
-  }
-
-  /* Ensure tabs stack vertically on mobile */
-  mat-tab-group .mat-tab-label {
-    font-size: 1rem;
-    padding: 8px;
-  }
-
-  /* Make the menu and toolbar buttons more touch-friendly */
-  .mat-menu-item {
-    font-size: 1rem;
-    padding: 10px 20px;
+  .table-container {
+    overflow-x: auto;
   }
 }
 
 @media (max-width: 480px) {
   .title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    text-align: center;
   }
 
-  /* Make profile image smaller for very small screens */
   .profile-image {
     width: 35px;
     height: 35px;
   }
 
-  .profile-button {
-    padding: 5px;
+  .custom-table {
+    font-size: 12px;
   }
 
-  mat-tab-group {
-    margin-top: 15px;
-    padding: 8px;
+  .custom-table th.mat-header-cell,
+  .custom-table td.mat-cell {
+    padding: 10px;
   }
 
-  mat-tab {
-    font-size: 0.95rem;
+  .actions-cell {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  app-customer-track-device {
-    padding: 12px;
-    margin-top: 8px;
-  }
-
-  /* Ensure buttons and menus are more accessible */
-  .mat-menu-item {
-    font-size: 0.95rem;
-    padding: 8px 15px;
+  .icon-button {
+    padding: 4px 8px;
   }
 }
